@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    /* Modules */
+    "module": "ESNext",
+    "moduleResolution": "node",
+
+    /* Emit */
+    "outDir": "dist",
+    "declaration": true,
+    "noEmit": true,
+    "noEmitOnError": true,
+    "declarationDir": ".",
+    "jsx": "react-jsx",
+    "skipLibCheck": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": false, // false as sgds has no type declarations
+    "strictNullChecks": true,
+    "sourceMap": false,
+    "esModuleInterop": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "*/**/**.stories.tsx", "dist"]
+}

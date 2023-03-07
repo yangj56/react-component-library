@@ -1,0 +1,7 @@
+{
+  "setupFilesAfterEnv": ["./jest-setup.ts"],
+  "moduleNameMapper": {
+    "\\.(css|less|woff|woff2|ttf|svg)$": "identity-obj-proxy"
+  },
+  "testEnvironment": "jsdom"
+}
