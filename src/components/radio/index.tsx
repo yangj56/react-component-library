@@ -77,8 +77,8 @@ const StyledRadioCircle = styled.div<RadioProps>`
     return `${widthSize}`;
   }};
   box-sizing: border-box;
-  border: ${({ theme }) => {
-    return `0.1rem solid ${theme.color.NEUTRAL}`;
+  border: ${() => {
+    return `0.1rem solid ${Color.GREY}`;
   }};
   border-radius: 50%;
   cursor: pointer;
@@ -98,8 +98,8 @@ const StyledRadioCircle = styled.div<RadioProps>`
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background: ${({ theme }) => {
-      return `${theme.color.WHITE}`;
+    background: ${() => {
+      return `${Color.WHITE}`;
     }};
     cursor: pointer;
   }
@@ -108,8 +108,8 @@ const StyledRadioCircle = styled.div<RadioProps>`
 const StyledInput = styled.input`
   display: none;
   &:checked + ${StyledRadioCircle} {
-    background-color: ${({ theme }) => {
-      return `${theme.color.PRIMARY}`;
+    background-color: ${() => {
+      return `${Color.PURPLE}`;
     }};
   }
 `;

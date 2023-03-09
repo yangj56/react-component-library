@@ -8,7 +8,6 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-postcss',
     '@storybook/addon-actions',
-    'storybook-addon-styled-component-theme/dist/preset',
   ],
   docs: {
     autodocs: true,

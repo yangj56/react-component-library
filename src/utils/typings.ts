@@ -1,8 +1,3 @@
-export enum ThemeType {
-  THEME_1 = 'basic',
-  THEME_2 = 'pro',
-}
-
 export enum Size {
   NORMAL = 'normal',
   SMALL = 'small',
