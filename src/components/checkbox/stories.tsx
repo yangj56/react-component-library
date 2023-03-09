@@ -1,11 +1,11 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import Radio from '.';
+import Checkbox from '.';
 import { Size } from '../../utils/typings';
 
 export default {
-  title: 'Radio',
-  component: Radio,
+  title: 'Checkbox',
+  component: Checkbox,
   argTypes: {
     isChecked: {
       defaultValue: false,
@@ -31,20 +31,22 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Radio>;
+} as ComponentMeta<typeof Checkbox>;
 
-const Template: ComponentStory<typeof Radio> = (args) => <Radio {...args} />;
+const Template: ComponentStory<typeof Checkbox> = (args) => (
+  <Checkbox {...args} />
+);
 
-export const NormalRadio = Template.bind({});
-NormalRadio.args = {
+export const NormalCheckbox = Template.bind({});
+NormalCheckbox.args = {
   isChecked: false,
   value: 'normal',
   size: Size.NORMAL,
   label: 'Hello World',
 };
 
-export const LargeBoldRadio = Template.bind({});
-LargeBoldRadio.args = {
+export const LargeBoldCheckbox = Template.bind({});
+LargeBoldCheckbox.args = {
   isChecked: false,
   value: 'sample',
   size: Size.LARGE,

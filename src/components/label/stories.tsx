@@ -4,7 +4,7 @@ import Label from '.';
 import { Size } from '../../utils/typings';
 
 export default {
-  title: 'Components/Label',
+  title: 'Label',
   component: Label,
   argTypes: {
     bold: {
@@ -29,7 +29,7 @@ export default {
 const Template: ComponentStory<typeof Label> = (args) => <Label {...args} />;
 
 export const NormalLabel = Template.bind({});
-NormalLabel.args = { bold: false, label: 'normal', size: Size.NORMAL };
+NormalLabel.args = { bold: false, label: 'Hello World', size: Size.NORMAL };
 
 export const LargeBoldLabel = Template.bind({});
-LargeBoldLabel.args = { bold: true, label: 'large', size: Size.LARGE };
+LargeBoldLabel.args = { bold: true, label: 'Hello World', size: Size.LARGE };

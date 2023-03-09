@@ -1,20 +1,21 @@
-export type StyleProps = {
-  style?: React.CSSProperties;
-  className?: string;
-};
-
-export type TestProps = {
-  ['data-testid']?: string;
-};
-
 export enum ThemeType {
   THEME_1 = 'basic',
-  THEME_2 = 'light',
-  THEME_3 = 'dark',
+  THEME_2 = 'pro',
 }
 
 export enum Size {
   NORMAL = 'normal',
   SMALL = 'small',
   LARGE = 'large',
+}
+
+export enum Direction {
+  UP = 'up',
+  DOWN = 'down',
+  UNI = 'uni',
+}
+
+export enum BaseShape {
+  ROUND = 'round',
+  SQUARE = 'square',
 }

@@ -9,6 +9,10 @@ addDecorator(withThemesProvider(Themes), ThemeProvider);
 export const decorators = [(Story) => WithStyles(Story)];
 
 export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
   layout: 'centered',
+  options: {
+    storySort: {
+      order: ['Base', 'Label', 'Arrow', 'Checkbox', 'Radio'],
+    },
+  },
 };

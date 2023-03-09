@@ -28,9 +28,12 @@ const StyledText = styled.span<StypedTextProps>`
   font-size: ${({ size }) => {
     return sizeConvertor(size, {
       NORMAL: '1.4rem',
-      LARGE: '2.4rem',
+      LARGE: '2.0rem',
       SMALL: '1.2rem',
     });
   }};
   font-weight: ${({ bold }) => (bold ? '700' : '350')};
+  font-family: 'Avenir';
+  line-height: 1.75;
+  letter-spacing: 0;
 `;
