@@ -1,13 +1,16 @@
-const path = require('path');
-
 module.exports = {
-  stories: ['../src/**/**/*.stories.tsx', '../src/**/**/*.stories.mdx'],
+  core: {
+    builder: 'webpack5',
+  },
+  stories: ['../src/**/stories.tsx'],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
+    '@storybook/addon-postcss',
+    '@storybook/addon-actions',
     'storybook-addon-styled-component-theme/dist/preset',
   ],
-  core: {
-    builder: 'webpack5',
+  docs: {
+    autodocs: true,
   },
 };
