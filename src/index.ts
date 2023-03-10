@@ -7,6 +7,8 @@ import { Direction, BaseShape, Size } from './utils/typings';
 import { WithStyles } from './utils/withStyles';
 import { Color } from './styles/color';
 import { GlobalStyles } from './styles/global';
+import { ThemeInterface } from './types/theme';
+import { Themes } from './styles/theme';
 
 export {
   Label,
@@ -20,4 +22,6 @@ export {
   WithStyles,
   Color,
   GlobalStyles,
+  type ThemeInterface,
+  Themes,
 };

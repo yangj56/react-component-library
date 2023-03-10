@@ -1,38 +1,30 @@
-import React from 'react';
+import React, { InputHTMLAttributes } from 'react';
 import styled from 'styled-components';
 import { Color } from '../../styles/color';
 import { sizeConvertor } from '../../utils/helper';
 import { Size } from '../../utils/typings';
 import Label from '../label';
 
-export type CheckboxProps = {
-  size: Size;
-};
-
-export type Props = {
-  value: string;
-  isChecked: boolean;
+type Props = InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
   bold?: boolean;
   overideColor?: Color;
 } & CheckboxProps;
 
-export default function index({
-  isChecked,
-  value,
-  label,
-  bold,
-  overideColor,
-  size,
-}: Props): JSX.Element {
+type CheckboxProps = {
+  displaySize?: Size;
+};
+
+export default function index(props: Props): JSX.Element {
+  const { label, bold, overideColor, displaySize } = props;
   return (
     <StyledContainer>
-      <StyledInput type="checkbox" value={value} checked={isChecked} />
-      <StyledCheckboxSquare size={size} />
+      <StyledInput {...props} type="checkbox" />
+      <StyledCheckboxSquare displaySize={displaySize} />
       {label && (
-        <StyledLabelContainer size={size}>
+        <StyledLabelContainer displaySize={displaySize}>
           <Label
-            size={size}
+            displaySize={displaySize}
             bold={bold}
             overideColor={overideColor}
             label={label}
@@ -49,8 +41,8 @@ const StyledContainer = styled.div`
 `;
 
 const StyledLabelContainer = styled.div<CheckboxProps>`
-  margin-left: ${({ size }) => {
-    const marginSize = sizeConvertor(size, {
+  margin-left: ${({ displaySize }) => {
+    const marginSize = sizeConvertor(displaySize, {
       LARGE: '2.4rem',
       NORMAL: '1.6rem',
       SMALL: '1.4rem',
@@ -60,16 +52,16 @@ const StyledLabelContainer = styled.div<CheckboxProps>`
 `;
 
 const StyledCheckboxSquare = styled.div<CheckboxProps>`
-  height: ${({ size }) => {
-    const heightSize = sizeConvertor(size, {
+  height: ${({ displaySize }) => {
+    const heightSize = sizeConvertor(displaySize, {
       LARGE: '3.2rem',
       NORMAL: '2.4rem',
       SMALL: '1.6rem',
     });
     return `${heightSize}`;
   }};
-  width: ${({ size }) => {
-    const widthSize = sizeConvertor(size, {
+  width: ${({ displaySize }) => {
+    const widthSize = sizeConvertor(displaySize, {
       LARGE: '3.2rem',
       NORMAL: '2.4rem',
       SMALL: '1.6rem',

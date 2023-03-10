@@ -4,13 +4,13 @@ import { Direction, Size } from '../../utils/typings';
 
 type Props = {
   direction: Direction;
-  size: Size;
+  displaySize: Size;
 };
 
-export default function index({ direction, size }: Props) {
+export default function index({ direction, displaySize }: Props) {
   function convertSize() {
     let result = '';
-    switch (size) {
+    switch (displaySize) {
       case Size.NORMAL:
         result = '20';
         break;

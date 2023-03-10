@@ -7,7 +7,7 @@ export default {
   title: 'Radio',
   component: Radio,
   argTypes: {
-    isChecked: {
+    checked: {
       defaultValue: false,
       type: 'boolean',
     },
@@ -22,7 +22,7 @@ export default {
       defaultValue: false,
       type: 'boolean',
     },
-    size: {
+    displaySize: {
       defaultValue: Size.SMALL,
       type: 'string',
       control: {
@@ -37,17 +37,17 @@ const Template: ComponentStory<typeof Radio> = (args) => <Radio {...args} />;
 
 export const NormalRadio = Template.bind({});
 NormalRadio.args = {
-  isChecked: false,
+  checked: false,
   value: 'normal',
-  size: Size.NORMAL,
+  displaySize: Size.NORMAL,
   label: 'Hello World',
 };
 
 export const LargeBoldRadio = Template.bind({});
 LargeBoldRadio.args = {
-  isChecked: false,
+  checked: false,
   value: 'sample',
-  size: Size.LARGE,
+  displaySize: Size.LARGE,
   label: 'Hello World',
   bold: true,
 };

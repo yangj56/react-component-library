@@ -7,7 +7,7 @@ export default {
   title: 'Checkbox',
   component: Checkbox,
   argTypes: {
-    isChecked: {
+    checked: {
       defaultValue: false,
       type: 'boolean',
     },
@@ -22,7 +22,7 @@ export default {
       defaultValue: false,
       type: 'boolean',
     },
-    size: {
+    displaySize: {
       defaultValue: Size.SMALL,
       type: 'string',
       control: {
@@ -39,17 +39,17 @@ const Template: ComponentStory<typeof Checkbox> = (args) => (
 
 export const NormalCheckbox = Template.bind({});
 NormalCheckbox.args = {
-  isChecked: false,
+  checked: false,
   value: 'normal',
-  size: Size.NORMAL,
+  displaySize: Size.NORMAL,
   label: 'Hello World',
 };
 
 export const LargeBoldCheckbox = Template.bind({});
 LargeBoldCheckbox.args = {
-  isChecked: false,
+  checked: false,
   value: 'sample',
-  size: Size.LARGE,
+  displaySize: Size.LARGE,
   label: 'Hello World',
   bold: true,
 };

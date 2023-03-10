@@ -1,38 +1,30 @@
-import React from 'react';
+import React, { InputHTMLAttributes } from 'react';
 import styled from 'styled-components';
 import { Color } from '../../styles/color';
 import { sizeConvertor } from '../../utils/helper';
 import { Size } from '../../utils/typings';
 import Label from '../label';
 
-export type RadioProps = {
-  size: Size;
-};
-
-export type Props = {
-  value: string;
-  isChecked: boolean;
+type Props = InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
   bold?: boolean;
   overideColor?: Color;
 } & RadioProps;
 
-export default function index({
-  isChecked,
-  value,
-  label,
-  bold,
-  overideColor,
-  size,
-}: Props): JSX.Element {
+type RadioProps = {
+  displaySize?: Size;
+};
+
+export default function index(props: Props): JSX.Element {
+  const { label, bold, overideColor, displaySize } = props;
   return (
     <StyledContainer>
-      <StyledInput type="radio" value={value} checked={isChecked} />
-      <StyledRadioCircle size={size} />
+      <StyledInput {...props} type="radio" />
+      <StyledRadioCircle displaySize={displaySize} />
       {label && (
-        <StyledLabelContainer size={size}>
+        <StyledLabelContainer displaySize={displaySize}>
           <Label
-            size={size}
+            displaySize={displaySize}
             bold={bold}
             overideColor={overideColor}
             label={label}
@@ -49,8 +41,8 @@ const StyledContainer = styled.div`
 `;
 
 const StyledLabelContainer = styled.div<RadioProps>`
-  margin-left: ${({ size }) => {
-    const marginSize = sizeConvertor(size, {
+  margin-left: ${({ displaySize }) => {
+    const marginSize = sizeConvertor(displaySize, {
       LARGE: '2.4rem',
       NORMAL: '1.6rem',
       SMALL: '1.4rem',
@@ -59,17 +51,17 @@ const StyledLabelContainer = styled.div<RadioProps>`
   }};
 `;
 
-const StyledRadioCircle = styled.div<RadioProps>`
-  height: ${({ size }) => {
-    const heightSize = sizeConvertor(size, {
+const StyledRadioCircle = styled.span<RadioProps>`
+  height: ${({ displaySize }) => {
+    const heightSize = sizeConvertor(displaySize, {
       LARGE: '3.2rem',
       NORMAL: '2.4rem',
       SMALL: '1.6rem',
     });
     return `${heightSize}`;
   }};
-  width: ${({ size }) => {
-    const widthSize = sizeConvertor(size, {
+  width: ${({ displaySize }) => {
+    const widthSize = sizeConvertor(displaySize, {
       LARGE: '3.2rem',
       NORMAL: '2.4rem',
       SMALL: '1.6rem',
@@ -83,8 +75,8 @@ const StyledRadioCircle = styled.div<RadioProps>`
   border-radius: 50%;
   cursor: pointer;
   margin-right: 0.4rem;
-  padding: ${({ size }) => {
-    const paddingSize = sizeConvertor(size, {
+  padding: ${({ displaySize }) => {
+    const paddingSize = sizeConvertor(displaySize, {
       LARGE: '0.8rem',
       NORMAL: '0.6rem',
       SMALL: '0.4rem',
@@ -102,14 +94,18 @@ const StyledRadioCircle = styled.div<RadioProps>`
       return `${theme.color.WHITE}`;
     }};
     cursor: pointer;
+    transform: scale(0);
   }
 `;
 
 const StyledInput = styled.input`
   display: none;
   &:checked + ${StyledRadioCircle} {
-    background-color: ${({ theme }) => {
-      return `${theme.color.PRIMARY}`;
-    }};
+    &::after {
+      transform: scale(1);
+      background-color: ${({ theme }) => {
+        return `${theme.color.PRIMARY}`;
+      }};
+    }
   }
 `;

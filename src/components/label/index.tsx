@@ -1,21 +1,28 @@
-import React from 'react';
+import React, { HtmlHTMLAttributes } from 'react';
 import styled from 'styled-components';
 import { Color } from '../../styles/color';
 import { sizeConvertor } from '../../utils/helper';
 import { Size } from '../../utils/typings';
 
-type StypedTextProps = {
-  bold?: boolean;
-  size: Size;
-  overideColor?: Color;
-};
-export type Props = {
-  label: string;
+type Props = HtmlHTMLAttributes<HTMLSpanElement> & {
+  label?: string;
 } & StypedTextProps;
 
-export default function index({ label, bold, overideColor, size }: Props) {
+type StypedTextProps = {
+  bold?: boolean;
+  displaySize?: Size;
+  overideColor?: Color;
+};
+
+export default function index(props: Props) {
+  const { label, bold, overideColor, displaySize } = props;
   return (
-    <StyledText overideColor={overideColor} size={size} bold={bold}>
+    <StyledText
+      {...props}
+      overideColor={overideColor}
+      displaySize={displaySize}
+      bold={bold}
+    >
       {label}
     </StyledText>
   );
@@ -25,8 +32,8 @@ const StyledText = styled.span<StypedTextProps>`
   color: ${({ overideColor }) => {
     return overideColor ? overideColor : Color.BLACK;
   }};
-  font-size: ${({ size }) => {
-    return sizeConvertor(size, {
+  font-size: ${({ displaySize }) => {
+    return sizeConvertor(displaySize, {
       NORMAL: '1.4rem',
       LARGE: '2.0rem',
       SMALL: '1.2rem',

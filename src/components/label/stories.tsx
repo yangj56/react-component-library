@@ -15,7 +15,7 @@ export default {
       defaultValue: 'default',
       type: 'string',
     },
-    size: {
+    displaySize: {
       defaultValue: Size.SMALL,
       type: 'string',
       control: {
@@ -29,7 +29,15 @@ export default {
 const Template: ComponentStory<typeof Label> = (args) => <Label {...args} />;
 
 export const NormalLabel = Template.bind({});
-NormalLabel.args = { bold: false, label: 'Hello World', size: Size.NORMAL };
+NormalLabel.args = {
+  bold: false,
+  label: 'Hello World',
+  displaySize: Size.NORMAL,
+};
 
 export const LargeBoldLabel = Template.bind({});
-LargeBoldLabel.args = { bold: true, label: 'Hello World', size: Size.LARGE };
+LargeBoldLabel.args = {
+  bold: true,
+  label: 'Hello World',
+  displaySize: Size.LARGE,
+};

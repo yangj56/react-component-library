@@ -6,7 +6,10 @@ export function isMobileCheck() {
 
 type SizeValueT = { [key in keyof typeof Size]: string };
 
-export function sizeConvertor(size: Size, converts: SizeValueT): string {
+export function sizeConvertor(
+  size: Size = Size.NORMAL,
+  converts: SizeValueT
+): string {
   let result = '';
   switch (size) {
     case Size.NORMAL:

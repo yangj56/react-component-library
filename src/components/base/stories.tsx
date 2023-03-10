@@ -38,7 +38,7 @@ WithContentBase.args = {
   children: (
     <div style={{ margin: 20 }}>
       {' '}
-      <Label label="Some dummy Content" size={Size.NORMAL} />
+      <Label label="Some dummy Content" displaySize={Size.NORMAL} />
     </div>
   ),
 };

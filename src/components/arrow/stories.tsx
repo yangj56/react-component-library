@@ -15,7 +15,7 @@ export default {
         options: [Direction.UP, Direction.DOWN, Direction.UNI],
       },
     },
-    size: {
+    displaySize: {
       defaultValue: Size.SMALL,
       type: 'string',
       control: {
@@ -31,16 +31,16 @@ const Template: ComponentStory<typeof Arrow> = (args) => <Arrow {...args} />;
 export const DownArrow = Template.bind({});
 DownArrow.args = {
   direction: Direction.DOWN,
-  size: Size.NORMAL,
+  displaySize: Size.NORMAL,
 };
 
 export const UpArrow = Template.bind({});
 UpArrow.args = {
   direction: Direction.UP,
-  size: Size.NORMAL,
+  displaySize: Size.NORMAL,
 };
 export const DownUpArrow = Template.bind({});
 DownUpArrow.args = {
   direction: Direction.UNI,
-  size: Size.NORMAL,
+  displaySize: Size.NORMAL,
 };

@@ -11,8 +11,8 @@ const config = {
   input: 'src/index.ts',
   output: [
     {
-      file: packageJson.main,
-      format: 'cjs',
+      file: packageJson.module,
+      format: 'esm',
       exports: 'named',
       sourcemap: true,
     },

@@ -1,6 +1,6 @@
 {
   "name": "react-component-library",
-  "version": "1.0.7",
+  "version": "1.0.20",
   "description": "A story design system",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -21,8 +21,6 @@
     "react",
     "typescript"
   ],
-  "author": "Prateek Surana",
-  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.21.0",
     "@rollup/plugin-commonjs": "^24.0.1",
@@ -64,7 +62,8 @@
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": ">= 18",
+    "react-dom": ">= 18",
+    "styled-components": ">= 5"
   }
 }
