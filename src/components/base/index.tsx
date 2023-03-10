@@ -33,6 +33,7 @@ const StyledBased = styled.div<Props>`
     if (shadow) {
       return `0 3px 10px rgb(0 0 0 / 0.2)`;
     }
+    return '';
   }};
   border-radius: ${({ shape }) => {
     if (shape === BaseShape.ROUND) {

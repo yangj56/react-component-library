@@ -1,31 +1,39 @@
-import peerDepsExternal from 'rollup-plugin-peer-deps-external';
-import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-import typescript from 'rollup-plugin-typescript2';
+import resolve from '@rollup/plugin-node-resolve';
+import typescript from '@rollup/plugin-typescript';
+import url from '@rollup/plugin-url';
+import cssurl from 'postcss-url';
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
 import packageJson from './package.json';
 
-export default {
+const config = {
   input: 'src/index.ts',
   output: [
     {
       file: packageJson.main,
       format: 'cjs',
-      sourcemap: true,
-    },
-    {
-      file: packageJson.module,
-      format: 'esm',
+      exports: 'named',
       sourcemap: true,
     },
   ],
   plugins: [
-    peerDepsExternal(),
+    url({
+      include: ['**/*.ttf'],
+      limit: Infinity,
+    }),
     resolve(),
+    peerDepsExternal(),
     commonjs(),
-    typescript({ useTsconfigDeclarationDir: true }),
+    typescript({ tsconfig: './tsconfig.json', sourceMap: true }),
     postcss({
-      extensions: ['.css'],
+      plugins: [
+        cssurl({
+          url: 'inline',
+        }),
+      ],
     }),
   ],
 };
+
+export default config;
