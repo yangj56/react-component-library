@@ -77,8 +77,8 @@ const StyledCheckboxSquare = styled.div<CheckboxProps>`
     return `${widthSize}`;
   }};
   box-sizing: border-box;
-  border: ${() => {
-    return `0.1rem solid ${Color.GREY}`;
+  border: ${({ theme }) => {
+    return `0.1rem solid ${theme.color.NEUTRAL}`;
   }};
   border-radius: 0.4rem;
   cursor: pointer;
@@ -103,8 +103,8 @@ const StyledCheckboxSquare = styled.div<CheckboxProps>`
 const StyledInput = styled.input`
   display: none;
   &:checked + ${StyledCheckboxSquare} {
-    background-color: ${() => {
-      return `${Color.PURPLE}`;
+    background-color: ${({ theme }) => {
+      return `${theme.color.PRIMARY}`;
     }};
   }
 `;
