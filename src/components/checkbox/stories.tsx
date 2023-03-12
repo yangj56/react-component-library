@@ -42,7 +42,6 @@ NormalCheckbox.args = {
   checked: false,
   value: 'normal',
   displaySize: Size.NORMAL,
-  label: 'Hello World',
 };
 
 export const LargeBoldCheckbox = Template.bind({});

@@ -1,10 +1,10 @@
-import React, { HtmlHTMLAttributes } from 'react';
+import React, { LabelHTMLAttributes } from 'react';
 import styled from 'styled-components';
 import { Color } from '../../styles/color';
 import { sizeConvertor } from '../../utils/helper';
 import { Size } from '../../utils/typings';
 
-type Props = HtmlHTMLAttributes<HTMLSpanElement> & {
+type Props = LabelHTMLAttributes<HTMLLabelElement> & {
   label?: string;
 } & StypedTextProps;
 
@@ -28,7 +28,7 @@ export default function index(props: Props) {
   );
 }
 
-const StyledText = styled.span<StypedTextProps>`
+const StyledText = styled.label<StypedTextProps>`
   color: ${({ overideColor }) => {
     return overideColor ? overideColor : Color.BLACK;
   }};
@@ -40,7 +40,7 @@ const StyledText = styled.span<StypedTextProps>`
     });
   }};
   font-weight: ${({ bold }) => (bold ? '700' : '350')};
-  font-family: 'Avenir';
+  font-family: ${({ theme }) => theme.fontFamily};
   line-height: 1.75;
   letter-spacing: 0;
 `;

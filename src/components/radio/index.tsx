@@ -17,19 +17,20 @@ type RadioProps = {
 
 export default function index(props: Props): JSX.Element {
   const { label, bold, overideColor, displaySize } = props;
+  const randomId = `${Math.floor(1000 + Math.random() * 9000)}`;
+
   return (
     <StyledContainer>
-      <StyledInput {...props} type="radio" />
+      <StyledInput {...props} type="radio" id={randomId} />
       <StyledRadioCircle displaySize={displaySize} />
       {label && (
-        <StyledLabelContainer displaySize={displaySize}>
-          <Label
-            displaySize={displaySize}
-            bold={bold}
-            overideColor={overideColor}
-            label={label}
-          />
-        </StyledLabelContainer>
+        <StyledLabelContainer
+          displaySize={displaySize}
+          bold={bold}
+          overideColor={overideColor}
+          label={label}
+          htmlFor={randomId}
+        />
       )}
     </StyledContainer>
   );
@@ -40,7 +41,7 @@ const StyledContainer = styled.div`
   justify-content: center;
 `;
 
-const StyledLabelContainer = styled.div<RadioProps>`
+const StyledLabelContainer = styled(Label)<RadioProps>`
   margin-left: ${({ displaySize }) => {
     const marginSize = sizeConvertor(displaySize, {
       LARGE: '2.4rem',
@@ -94,18 +95,14 @@ const StyledRadioCircle = styled.span<RadioProps>`
       return `${theme.color.WHITE}`;
     }};
     cursor: pointer;
-    transform: scale(0);
   }
 `;
 
 const StyledInput = styled.input`
   display: none;
   &:checked + ${StyledRadioCircle} {
-    &::after {
-      transform: scale(1);
-      background-color: ${({ theme }) => {
-        return `${theme.color.PRIMARY}`;
-      }};
-    }
+    background-color: ${({ theme }) => {
+      return `${theme.color.PRIMARY}`;
+    }};
   }
 `;

@@ -1,13 +1,17 @@
 import React from 'react';
 import { BsArrowDownUp, BsArrowUp, BsArrowDown } from 'react-icons/bs';
+import styled from 'styled-components';
+import { Color } from '../../styles/color';
 import { Direction, Size } from '../../utils/typings';
 
 type Props = {
   direction: Direction;
   displaySize: Size;
+  onClick?: () => void;
 };
 
-export default function index({ direction, displaySize }: Props) {
+export default function index(props: Props) {
+  const { direction, displaySize, onClick } = props;
   function convertSize() {
     let result = '';
     switch (displaySize) {
@@ -27,9 +31,38 @@ export default function index({ direction, displaySize }: Props) {
   }
   return (
     <div>
-      {direction === Direction.UP && <BsArrowUp size={convertSize()} />}
-      {direction === Direction.DOWN && <BsArrowDown size={convertSize()} />}
-      {direction === Direction.UNI && <BsArrowDownUp size={convertSize()} />}
+      {direction === Direction.UP && (
+        <RoundButton>
+          <BsArrowUp size={convertSize()} onClick={onClick} />
+        </RoundButton>
+      )}
+      {direction === Direction.DOWN && (
+        <RoundButton>
+          <BsArrowDown size={convertSize()} onClick={onClick} />
+        </RoundButton>
+      )}
+      {direction === Direction.UNI && (
+        <RoundButton>
+          <BsArrowDownUp size={convertSize()} onClick={onClick} />
+        </RoundButton>
+      )}
     </div>
   );
 }
+
+const RoundButton = styled.button`
+  padding: 1rem;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  &:hover {
+    background-color: ${({ theme }) => {
+      return `${theme.color.SECONDARY}`;
+    }};
+  }
+  &:active {
+    background-color: ${({ theme }) => {
+      return `${theme.color.PRIMARY}`;
+    }};
+  }
+`;

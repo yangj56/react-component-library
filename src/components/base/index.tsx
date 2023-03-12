@@ -1,4 +1,4 @@
-import React, { HtmlHTMLAttributes } from 'react';
+import React, { HtmlHTMLAttributes, PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import { BaseShape, Size } from '../../utils/typings';
 import Label from '../label';
@@ -6,10 +6,9 @@ import Label from '../label';
 type Props = HtmlHTMLAttributes<HTMLDivElement> & {
   shadow: boolean;
   shape: BaseShape;
-  children: React.ReactNode;
 };
 
-export default function index(props: Props) {
+export default function index(props: PropsWithChildren<Props>) {
   const { shadow, shape, children } = props;
   return (
     <StyledBased {...props} shadow={shadow} shape={shape}>
@@ -26,13 +25,14 @@ export default function index(props: Props) {
 
 const StyledBased = styled.div<Props>`
   display: flex;
+  overflow: hidden;
   justify-content: center;
   align-items: center;
   width: 100%;
   min-height: 5rem;
-  box-shadow: ${({ shadow }) => {
+  box-shadow: ${({ shadow, theme }) => {
     if (shadow) {
-      return `0 3px 10px rgb(0 0 0 / 0.2)`;
+      return `0 3px 10px ${theme.color.BACKGROUND}`;
     }
     return '';
   }};

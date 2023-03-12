@@ -17,19 +17,20 @@ type CheckboxProps = {
 
 export default function index(props: Props): JSX.Element {
   const { label, bold, overideColor, displaySize } = props;
+  const randomId = `${Math.floor(1000 + Math.random() * 9000)}`;
+
   return (
     <StyledContainer>
-      <StyledInput {...props} type="checkbox" />
+      <StyledInput {...props} type="checkbox" id={randomId} />
       <StyledCheckboxSquare displaySize={displaySize} />
       {label && (
-        <StyledLabelContainer displaySize={displaySize}>
-          <Label
-            displaySize={displaySize}
-            bold={bold}
-            overideColor={overideColor}
-            label={label}
-          />
-        </StyledLabelContainer>
+        <StyledLabelContainer
+          displaySize={displaySize}
+          bold={bold}
+          overideColor={overideColor}
+          label={label}
+          htmlFor={randomId}
+        />
       )}
     </StyledContainer>
   );
@@ -40,7 +41,7 @@ const StyledContainer = styled.div`
   justify-content: center;
 `;
 
-const StyledLabelContainer = styled.div<CheckboxProps>`
+const StyledLabelContainer = styled(Label)<CheckboxProps>`
   margin-left: ${({ displaySize }) => {
     const marginSize = sizeConvertor(displaySize, {
       LARGE: '2.4rem',
@@ -84,7 +85,7 @@ const StyledCheckboxSquare = styled.div<CheckboxProps>`
     top: 20%;
     width: 20%;
     height: 40%;
-    border: solid #ffffff;
+    border: ${({ theme }) => `solid ${theme.color.WHITE}`};
     border-width: 0 0.2rem 0.2rem 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
