@@ -5,9 +5,8 @@ export interface ThemeInterface {
 export interface ColorsInterface {
   PRIMARY: string;
   SECONDARY: string;
-  BACKGROUND: string;
-  SELECTED: string;
   UNDERLINED: string;
+  BORDER: string;
   WHITE: string;
   BLACK: string;
   NEUTRAL: string;

@@ -8,10 +8,9 @@ export const Themes: DefaultTheme[] = [
     color: {
       PRIMARY: Color.PURPLE,
       SECONDARY: Color.LIGHT_PURPLE,
-      BACKGROUND: Color.GREY,
+      BORDER: Color.GREY,
       BLACK: Color.BLACK,
       WHITE: Color.WHITE,
-      SELECTED: Color.LIGHT_GREY,
       UNDERLINED: Color.LIGHT_GREY,
       NEUTRAL: Color.DARK_WHITE,
     },
@@ -22,10 +21,9 @@ export const Themes: DefaultTheme[] = [
     color: {
       PRIMARY: Color.RED,
       SECONDARY: Color.LIGHT_RED,
-      BACKGROUND: Color.GREY,
+      BORDER: Color.GREY,
       BLACK: Color.BLACK,
       WHITE: Color.WHITE,
-      SELECTED: Color.LIGHT_GREY,
       UNDERLINED: Color.LIGHT_GREY,
       NEUTRAL: Color.DARK_WHITE,
     },

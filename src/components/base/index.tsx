@@ -32,9 +32,12 @@ const StyledBased = styled.div<Props>`
   min-height: 5rem;
   box-shadow: ${({ shadow, theme }) => {
     if (shadow) {
-      return `0 3px 10px ${theme.color.BACKGROUND}`;
+      return `0 0.3rem 0.6rem ${theme.color.NEUTRAL}`;
     }
     return '';
+  }};
+  border: ${({ theme }) => {
+    return `0.1rem solid ${theme.color.NEUTRAL}`;
   }};
   border-radius: ${({ shape }) => {
     if (shape === BaseShape.ROUND) {
@@ -42,6 +45,7 @@ const StyledBased = styled.div<Props>`
     }
     return `0.8rem`;
   }};
+  margin-bottom: 2rem;
 `;
 
 const StyledLabelContainer = styled.div`

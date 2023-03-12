@@ -17,22 +17,22 @@ type RadioProps = {
 
 export default function index(props: Props): JSX.Element {
   const { label, bold, overideColor, displaySize } = props;
-  const randomId = `${Math.floor(1000 + Math.random() * 9000)}`;
 
   return (
-    <StyledContainer>
-      <StyledInput {...props} type="radio" id={randomId} />
-      <StyledRadioCircle displaySize={displaySize} />
-      {label && (
-        <StyledLabelContainer
-          displaySize={displaySize}
-          bold={bold}
-          overideColor={overideColor}
-          label={label}
-          htmlFor={randomId}
-        />
-      )}
-    </StyledContainer>
+    <label>
+      <StyledContainer>
+        <StyledInput {...props} type="radio" />
+        <StyledRadioCircle displaySize={displaySize} />
+        {label && (
+          <StyledLabelContainer
+            displaySize={displaySize}
+            bold={bold}
+            overideColor={overideColor}
+            label={label}
+          />
+        )}
+      </StyledContainer>
+    </label>
   );
 }
 const StyledContainer = styled.div`
@@ -71,7 +71,7 @@ const StyledRadioCircle = styled.span<RadioProps>`
   }};
   box-sizing: border-box;
   border: ${({ theme }) => {
-    return `0.1rem solid ${theme.color.NEUTRAL}`;
+    return `0.1rem solid ${theme.color.BORDER}`;
   }};
   border-radius: 50%;
   cursor: pointer;

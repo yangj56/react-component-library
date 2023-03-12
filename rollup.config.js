@@ -19,7 +19,7 @@ const config = {
   ],
   plugins: [
     url({
-      include: ['**/*.ttf'],
+      include: ['**/*.ttf', '**/*.woff'],
       limit: Infinity,
     }),
     resolve(),

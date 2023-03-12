@@ -17,22 +17,22 @@ type CheckboxProps = {
 
 export default function index(props: Props): JSX.Element {
   const { label, bold, overideColor, displaySize } = props;
-  const randomId = `${Math.floor(1000 + Math.random() * 9000)}`;
 
   return (
-    <StyledContainer>
-      <StyledInput {...props} type="checkbox" id={randomId} />
-      <StyledCheckboxSquare displaySize={displaySize} />
-      {label && (
-        <StyledLabelContainer
-          displaySize={displaySize}
-          bold={bold}
-          overideColor={overideColor}
-          label={label}
-          htmlFor={randomId}
-        />
-      )}
-    </StyledContainer>
+    <label>
+      <StyledContainer>
+        <StyledInput {...props} type="checkbox" />
+        <StyledCheckboxSquare displaySize={displaySize} />
+        {label && (
+          <StyledLabelContainer
+            displaySize={displaySize}
+            bold={bold}
+            overideColor={overideColor}
+            label={label}
+          />
+        )}
+      </StyledContainer>
+    </label>
   );
 }
 const StyledContainer = styled.div`
@@ -71,7 +71,7 @@ const StyledCheckboxSquare = styled.div<CheckboxProps>`
   }};
   box-sizing: border-box;
   border: ${({ theme }) => {
-    return `0.1rem solid ${theme.color.NEUTRAL}`;
+    return `0.1rem solid ${theme.color.BORDER}`;
   }};
   border-radius: 0.4rem;
   cursor: pointer;
