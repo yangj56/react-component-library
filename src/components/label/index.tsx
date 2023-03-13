@@ -1,10 +1,10 @@
-import { HtmlHTMLAttributes } from 'react';
+import React, { LabelHTMLAttributes } from 'react';
 import styled from 'styled-components';
 import { Color } from '../../styles/color';
 import { sizeConvertor } from '../../utils/helper';
 import { Size } from '../../utils/typings';
 
-type Props = HtmlHTMLAttributes<HTMLDivElement> & {
+type Props = LabelHTMLAttributes<HTMLLabelElement> & {
   label?: string;
 } & StypedTextProps;
 
@@ -28,7 +28,7 @@ export default function index(props: Props) {
   );
 }
 
-const StyledText = styled.div<StypedTextProps>`
+const StyledText = styled.label<StypedTextProps>`
   color: ${({ overideColor }) => {
     return overideColor ? overideColor : Color.BLACK;
   }};
