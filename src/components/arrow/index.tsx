@@ -1,4 +1,3 @@
-import React from 'react';
 import { BsArrowDownUp, BsArrowUp, BsArrowDown } from 'react-icons/bs';
 import styled from 'styled-components';
 import { Direction, Size } from '../../utils/typings';
@@ -28,23 +27,19 @@ export default function index(props: Props) {
     }
     return result;
   }
+
+  function getArrowDirection() {
+    if (direction === Direction.UP) {
+      return <BsArrowUp size={convertSize()} />;
+    }
+    if (direction === Direction.DOWN) {
+      return <BsArrowDown size={convertSize()} />;
+    }
+    return <BsArrowDownUp size={convertSize()} />;
+  }
   return (
     <div>
-      {direction === Direction.UP && (
-        <RoundButton>
-          <BsArrowUp size={convertSize()} onClick={onClick} />
-        </RoundButton>
-      )}
-      {direction === Direction.DOWN && (
-        <RoundButton>
-          <BsArrowDown size={convertSize()} onClick={onClick} />
-        </RoundButton>
-      )}
-      {direction === Direction.UNI && (
-        <RoundButton>
-          <BsArrowDownUp size={convertSize()} onClick={onClick} />
-        </RoundButton>
-      )}
+      <RoundButton onClick={onClick}>{getArrowDirection()}</RoundButton>
     </div>
   );
 }

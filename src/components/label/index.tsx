@@ -1,4 +1,4 @@
-import React, { LabelHTMLAttributes } from 'react';
+import { LabelHTMLAttributes } from 'react';
 import styled from 'styled-components';
 import { Color } from '../../styles/color';
 import { sizeConvertor } from '../../utils/helper';

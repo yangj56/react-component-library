@@ -1,4 +1,4 @@
-import React, { HtmlHTMLAttributes, PropsWithChildren } from 'react';
+import { HtmlHTMLAttributes, PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import { BaseShape, Size } from '../../utils/typings';
 import Label from '../label';
