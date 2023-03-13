@@ -1,4 +1,3 @@
-import React from 'react';
 import { BsArrowDownUp, BsArrowUp, BsArrowDown } from 'react-icons/bs';
 import styled from 'styled-components';
 import { Direction, Size } from '../../utils/typings';
