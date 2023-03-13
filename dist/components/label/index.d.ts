@@ -1,7 +1,7 @@
-import { LabelHTMLAttributes } from 'react';
+import { HtmlHTMLAttributes } from 'react';
 import { Color } from '../../styles/color';
 import { Size } from '../../utils/typings';
-type Props = LabelHTMLAttributes<HTMLLabelElement> & {
+type Props = HtmlHTMLAttributes<HTMLDivElement> & {
     label?: string;
 } & StypedTextProps;
 type StypedTextProps = {
