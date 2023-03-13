@@ -62,7 +62,7 @@ function index$4(props) {
     const { label, bold, overideColor, displaySize } = props;
     return (jsxRuntime.jsx(StyledText, Object.assign({}, props, { overideColor: overideColor, displaySize: displaySize, bold: bold }, { children: label })));
 }
-const StyledText = styled.div `
+const StyledText = styled.label `
   color: ${({ overideColor }) => {
     return overideColor ? overideColor : exports.Color.BLACK;
 }};
