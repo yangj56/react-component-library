@@ -2,14 +2,20 @@ import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 import url from '@rollup/plugin-url';
-import cssurl from 'postcss-url';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
 import packageJson from './package.json';
+import babel from '@rollup/plugin-babel';
 
 const config = {
   input: 'src/index.ts',
   output: [
+    {
+      file: packageJson.main,
+      format: 'cjs',
+      exports: 'named',
+      sourcemap: true,
+    },
     {
       file: packageJson.module,
       format: 'esm',
@@ -27,10 +33,17 @@ const config = {
     commonjs(),
     typescript({ tsconfig: './tsconfig.json', sourceMap: true }),
     postcss({
+      extensions: ['.css'],
+    }),
+    babel({
+      exclude: 'node_modules/**',
       plugins: [
-        cssurl({
-          url: 'inline',
-        }),
+        'babel-plugin-styled-components',
+        {
+          namespace: 'appname-',
+          displayName: false,
+          fileName: false,
+        },
       ],
     }),
   ],
