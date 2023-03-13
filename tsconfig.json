@@ -1,24 +1,20 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    /* Modules */
-    "module": "ESNext",
-    "moduleResolution": "node",
-
-    /* Emit */
+    "target": "es5",
+    "module": "esnext",
+    "jsx": "react",
+    "sourceMap": true,
     "outDir": "dist",
-    "declaration": true,
-    "noEmit": true,
-    "noEmitOnError": true,
-    "declarationDir": ".",
-    "jsx": "react-jsx",
+    "strict": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "skipLibCheck": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noImplicitAny": false,
-    "strictNullChecks": true,
-    "sourceMap": false,
-    "esModuleInterop": true
+    "forceConsistentCasingInFileNames": true,
+
+    "declaration": true,
+    "declarationDir": "types",
+    "emitDeclarationOnly": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "*/**/stories.tsx", "dist"]
