@@ -286,7 +286,16 @@ function index$1(props) {
         }
         return result;
     }
-    return (jsxRuntime.jsxs("div", { children: [direction === exports.Direction.UP && (jsxRuntime.jsx(RoundButton, { children: jsxRuntime.jsx(BsArrowUp, { size: convertSize(), onClick: onClick }) })), direction === exports.Direction.DOWN && (jsxRuntime.jsx(RoundButton, { children: jsxRuntime.jsx(BsArrowDown, { size: convertSize(), onClick: onClick }) })), direction === exports.Direction.UNI && (jsxRuntime.jsx(RoundButton, { children: jsxRuntime.jsx(BsArrowDownUp, { size: convertSize(), onClick: onClick }) }))] }));
+    function getArrowDirection() {
+        if (direction === exports.Direction.UP) {
+            return jsxRuntime.jsx(BsArrowUp, { size: convertSize() });
+        }
+        if (direction === exports.Direction.DOWN) {
+            return jsxRuntime.jsx(BsArrowDown, { size: convertSize() });
+        }
+        return jsxRuntime.jsx(BsArrowDownUp, { size: convertSize() });
+    }
+    return (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(RoundButton, Object.assign({ onClick: onClick }, { children: getArrowDirection() })) }));
 }
 const RoundButton = styled.button `
   padding: 1rem;

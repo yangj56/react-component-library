@@ -284,7 +284,16 @@ function index$1(props) {
         }
         return result;
     }
-    return (jsxs("div", { children: [direction === Direction.UP && (jsx(RoundButton, { children: jsx(BsArrowUp, { size: convertSize(), onClick: onClick }) })), direction === Direction.DOWN && (jsx(RoundButton, { children: jsx(BsArrowDown, { size: convertSize(), onClick: onClick }) })), direction === Direction.UNI && (jsx(RoundButton, { children: jsx(BsArrowDownUp, { size: convertSize(), onClick: onClick }) }))] }));
+    function getArrowDirection() {
+        if (direction === Direction.UP) {
+            return jsx(BsArrowUp, { size: convertSize() });
+        }
+        if (direction === Direction.DOWN) {
+            return jsx(BsArrowDown, { size: convertSize() });
+        }
+        return jsx(BsArrowDownUp, { size: convertSize() });
+    }
+    return (jsx("div", { children: jsx(RoundButton, Object.assign({ onClick: onClick }, { children: getArrowDirection() })) }));
 }
 const RoundButton = styled.button `
   padding: 1rem;
