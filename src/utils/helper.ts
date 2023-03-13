@@ -1,9 +1,5 @@
 import { Size } from './typings';
 
-export function isMobileCheck() {
-  return window.matchMedia('(max-width: 768px)').matches;
-}
-
 type SizeValueT = { [key in keyof typeof Size]: string };
 
 export function sizeConvertor(

@@ -5,7 +5,7 @@ import Arrow from './components/arrow';
 import Checkbox from './components/checkbox';
 import { Direction, BaseShape, Size } from './utils/typings';
 import { WithStyles } from './utils/withStyles';
-import { isMobileCheck, sizeConvertor } from './utils/helper';
+import { sizeConvertor } from './utils/helper';
 import { Color } from './styles/color';
 import { GlobalStyles } from './styles/global';
 import { ThemeInterface } from './types/theme';
@@ -25,6 +25,5 @@ export {
   GlobalStyles,
   type ThemeInterface,
   Themes,
-  isMobileCheck,
   sizeConvertor,
 };

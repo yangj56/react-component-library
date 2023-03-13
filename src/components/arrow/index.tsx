@@ -1,7 +1,6 @@
 import React from 'react';
 import { BsArrowDownUp, BsArrowUp, BsArrowDown } from 'react-icons/bs';
 import styled from 'styled-components';
-import { Color } from '../../styles/color';
 import { Direction, Size } from '../../utils/typings';
 
 type Props = {

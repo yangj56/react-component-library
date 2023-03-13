@@ -1,6 +1,6 @@
 export enum ThemeType {
-  THEME_1 = 'basic',
-  THEME_2 = 'pro',
+  THEME_1 = 'Purple Avenir',
+  THEME_2 = 'Red Roboto',
 }
 
 export enum Size {
