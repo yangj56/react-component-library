@@ -1,6 +1,6 @@
 {
   "name": "react-component-library",
-  "version": "1.0.32",
+  "version": "1.0.33",
   "description": "A story design system",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
